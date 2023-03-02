@@ -3,13 +3,15 @@ package stepdefinitions.seleniumuisteps;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import pages.KundenPage;
-import pages.RegisterPage;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
+import pages.CustomerPage;
 import utilities.Driver;
 
 public class createNewCustomerStepDef {
 
-    KundenPage kundenPage = new KundenPage();
+    public static WebDriver driver;
+    CustomerPage kundenPage = new CustomerPage();
 
     @Then("User clicks on Kunden link")
     public void userClicksOnKundenLink() {
@@ -29,7 +31,7 @@ public class createNewCustomerStepDef {
     Driver.selectAnItemFromDropdown(kundenPage.customerType,str);
     }
 
-    @And("User enter  {string} in the cutomer name input")
+    @And("User enter  {string} in the customer name input")
     public void userEnterInTheCutomerNameInput(String str) {
         Driver.waitAndSendText(kundenPage.customerName,str);
     }
@@ -71,48 +73,41 @@ public class createNewCustomerStepDef {
     public void userClicksOnAddressTabAndAddNewAddressLinks() {
         Driver.waitAndClick(kundenPage.customerTabAddress,2);
         Driver.waitAndClick(kundenPage.customerAddNewAddress,2);
-        Driver.waitAndClick(kundenPage.customerContactAdressType,2);
-        Driver.waitAndClick(kundenPage.customerContactRechnungsadresse,2);
-        Driver.waitAndClick(kundenPage.customerContactAndrede,2);
-        Driver.waitAndClick(kundenPage.customerContactAndredeOptionHerr,2);
-        Driver.waitAndSendText(kundenPage.customerContactName,"Contract name ");
-        Driver.waitAndSendText(kundenPage.customerContactFirma,"Firma name ");
-        Driver.waitAndSendText(kundenPage.customerContactAddressLine1,"address ");
-        Driver.waitAndSendText(kundenPage.customerContactFirma,"Firma name ");
-        Driver.waitAndSendText(kundenPage.customerContactAddressLine1,"Adress line 1 ");
-        Driver.waitAndSendText(kundenPage.customerContactAddressLine2,"Adress line 2 ");
-        Driver.waitAndSendText(kundenPage.customerContactOrtCity,"city here ...");
-
-
-        Driver.waitAndClick(kundenPage.customerLand,2);
-        Driver.waitAndClick(kundenPage.customerLandOptionDesh,2);
-
     }
-
-
 
     @And("User click the Submit button on the new customer")
     public void userClickTheSubmitButtonOnTheNewCustomer() {
-
-        Driver.waitAndClick(kundenPage.customerSubmit1,2);
-    }
-    @Then("I expect the registration to {string}")
-    public void iExpectTheRegistrationTo(String arg0) {
+        Driver.waitAndClick(kundenPage.customerSubmitAddress,2);
+        Driver.waitAndClick(kundenPage.customerNewAddressSave,2);
     }
 
-    @Given("User select {string} address type from list")
-    public void userSelectAddressTypeFromList(String arg0) {
-    }
-    @And("User select  {string} Andrede from list")
-    public void userSelectAndredeFromList(String arg0) {
+    @And("User complete New Address form")
+    public void userCompleteNewAddressForm() {
+        Driver.waitAndClick(kundenPage.customerAddressType,2);
+        Driver.waitAndClick(kundenPage.customerAddressDeliverAddress,2);
+        Driver.waitAndClick(kundenPage.customerSalutation,2);
+        Driver.waitAndClick(kundenPage.customerAddressFamily,2);
+        Driver.waitAndSendText(kundenPage.customerContactName,"Contract name ");
+        Driver.waitAndSendText(kundenPage.customerContactFirma,"Company name ");
+        Driver.waitAndSendText(kundenPage.customerContactAddressLine1,"Adress line 1 ");
+        Driver.waitAndSendText(kundenPage.customerContactAddressLine2,"Adress line 2 ");
+        Driver.waitAndSendText(kundenPage.customerContactPlzPostCode,"4565");
+        Driver.waitAndSendText(kundenPage.customerContactOrtCity,"Dortmund");
+        //Driver.waitAndClick(kundenPage.customerLand,2);
+        // Driver.waitAndClick(kundenPage.customerLandOptionDeutschland,2);
+        // default selected as a Deutschland
 
     }
+    @And("User change language as a english")
+    public void userChangeLanguageAsAEnglish() {
+        Driver.waitAndClick(kundenPage.headerLanguageIcon,2);
+        // add here mouse hover over German after then click on English
+/*
+        Actions actions = new Actions(driver);
 
-
-
-    @And("User complete form  {string}, {string}, {string}, {string}, {string}, {string}")
-    public void userCompleteForm(String arg0, String arg1, String arg2, String arg3, String arg4, String arg5) {
-
-
+        actions.moveToElement(kundenPage.languageOptGermany).perform();
+  */
+        Driver.waitAndClick(kundenPage.headerLanguageEnglish,2);
+        //
     }
 }

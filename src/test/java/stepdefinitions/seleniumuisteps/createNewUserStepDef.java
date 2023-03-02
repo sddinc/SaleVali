@@ -4,8 +4,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-
-
 import pages.RegisterPage;
 import utilities.Driver;
 
@@ -93,7 +91,7 @@ public class createNewUserStepDef {
     @Then("User verifies that sign in is successful")
     public void userVerifiesThatSignInIsSuccessful() {
         Assert.assertEquals(Driver.waitAndGetText(registrationPage.loginTitle,2),"Salevali Team");
-         Driver.waitAndClick(registrationPage.loginNextButton,1);
+         // Driver.waitAndClick(registrationPage.loginNextButton,1);
     }
 
     @And("User enter valid data on the  Inhaber {string}")
@@ -123,7 +121,10 @@ public class createNewUserStepDef {
 
     @And("User enter valid data on the Land {string}")
     public void userEnterValidDataOnTheLand(String land) {
-        Driver.waitAndSendText(registrationPage.enterLand,land);
+        Driver.waitAndClick(registrationPage.enterLand,1);
+        Driver.waitAndClick(registrationPage.enterLandDeutschland,1);
+
+
     }
 
     @And("User clicks on save button")
@@ -132,6 +133,19 @@ public class createNewUserStepDef {
     }
     @And("User clicks sign out and verifies sign out")
     public void userClicksSignOutAndVerifiesSignOut() {
-        Driver.waitAndClick(registrationPage.loginLogout,1);
+        Driver.waitAndClick(registrationPage.loginLogoutIcon,1);
+        Driver.waitAndClick(registrationPage.loginLogoutButton,1);
+        System.out.println("current url");
+        System.out.println(Driver.getDriver().getCurrentUrl());
+        Assert.assertEquals(Driver.getDriver().getCurrentUrl(),"https://dev.salevali.com/logout");
+
+    }
+
+    @Then("User verifies that sign in Dashboard is successful")
+    public void userVerifiesThatSignInDashboardIsSuccessful() {
+       // Assert.assertEquals(Driver.getDriver().getCurrentUrl(),"https://dev.salevali.com/dashboard");
+        System.out.println("current url");
+        System.out.println(Driver.getDriver().getCurrentUrl());
+
     }
 }

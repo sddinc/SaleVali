@@ -4,74 +4,46 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import pages.CustomerPage;
 import utilities.Driver;
 
-public class updateCustomerStepDef {
+import java.util.List;
+
+public class deleteCustomerStepDef {
+
+
+
 
     CustomerPage kundenPage = new CustomerPage();
 
+    @And("User clicks on delete icon")
+    public void userClciksOnDeleteIcon() {
 
-    @Given("User clicks on the edit icon on the actions")
-    public void userClicksOnTheEditIconOnTheActions() {
-        Driver.waitAndClick(kundenPage.customerUpdateIcon,2);
+        List<WebElement> deleteIcons = Driver.getDriver().findElements(By.xpath("//a[@class='btn btn-icon btn-hover-danger btn-sm']"));
+
+
+        int nrDeleteIcons=deleteIcons.size();
+        System.out.println("number"+nrDeleteIcons);
+
+        while(nrDeleteIcons>0){
+            Driver.waitAndClick(kundenPage.customerDeleteIcon,2);
+            Driver.wait(2);
+            Driver.waitAndClick(kundenPage.customerDeleteButton,2);
+            nrDeleteIcons--;
+        }
+
     }
 
-    @Then("Verify that update customer is visible successfully")
-    public void verifyThatUpdateCustomerIsVisibleSuccessfully() {
-        String updateCardTitle= Driver.waitAndGetText(kundenPage.customerUpdateCardTitle,2);
-        assert updateCardTitle != null;
-        Assert.assertTrue(updateCardTitle.equalsIgnoreCase("Update Customer"));
+    @And("User confirms by the delete button")
+    public void userConfirmsByTheDeleteButton() {
+
     }
 
-    @And("User update  {string} in the customer Type input")
-    public void userSelectInTheDropdownInput(String str) {
-
-        Driver.selectAnItemFromDropdown(kundenPage.customerType,str);
+    @Then("Verifies that deleted customer from the list")
+    public void verifiesThatDeletedCustomerFromTheList() {
     }
-    @And("User update  {string} in the customer name input")
-    public void userEnterInTheCutomerNameInput(String str) {
-        kundenPage.customerName.clear();
-        Driver.waitAndSendText(kundenPage.customerName,str);
-    }
-
-    @And("User update  {string} in the email input")
-    public void userEnterInTheEmailInput(String str) {
-        kundenPage.customerEmail.clear();
-        Driver.waitAndSendText(kundenPage.customerEmail,str);
-    }
-
-    @And("User update  {string} in the company name input")
-    public void userEnterInTheCompanyNameInput(String str) {
-        kundenPage.customerFirma.clear();
-        Driver.waitAndSendText(kundenPage.customerFirma,str);
-    }
-
-
-    @And("User update  {string} in the mobile number input")
-    public void userEnterInTheMobileNumberInput(String str) {
-        Driver.waitAndSendText(kundenPage.customerTel,str);
-    }
-
-    @And("User update  {string} in the handly number input")
-    public void userEnterInTheHandlyNumberInput(String str) {
-        Driver.waitAndSendText(kundenPage.customerHandy,str);
-    }
-
-    @And("User update  {string} in the fax input")
-    public void userUpdateInTheFaxInput(String str) {
-        Driver.waitAndSendText(kundenPage.customerFax,str);
-    }
-
-    @And("User update  {string} in the tax number input")
-    public void userUpdateInTheTaxNumberInput(String str) {
-        Driver.waitAndSendText(kundenPage.customerTaxNumber,str);
-    }
-
-    @And("User update  {string} in the vat ID input")
-    public void userUpdateInTheVatIDInput(String str) {
-        Driver.waitAndSendText(kundenPage.customerVatNr,str);
-    }
-
 
 }

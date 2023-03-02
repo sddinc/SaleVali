@@ -13,7 +13,9 @@ public class RegisterPage {
 
 
     @FindBy(xpath = "//*[text()='Kostenlos Registieren']")
+
     public WebElement linkToRegisterForm;
+
     @FindBy(xpath = "//input[@name='name']")
     public WebElement usernameRegister;
 
@@ -28,26 +30,27 @@ public class RegisterPage {
     public WebElement passwordRegister;
 
 
-    @FindBy(xpath = "///input[@id='acceptTerms']")
+    @FindBy(xpath = "//*[contains(text(),'Ich akzeptiere die ')]")
     public WebElement checkAcceptTerms;
+
 
     @FindBy(xpath = "//body/div[@id='root']/div[1]/div[1]/div[2]/div[1]")
     public WebElement clickBeforeSubmit;
 
-    @FindBy(xpath = "//span[@class='text-white']")
+    @FindBy(xpath = "//button[@type='submit']")
     public WebElement submitRegister;
 
-    @FindBy(xpath = "//h3[text()='Login']")
+    @FindBy(xpath = "//h1[text()='Login']")
     public WebElement LoginHeader;
 
 
     @FindBy(xpath = "//div[@class='alert-text']")
     public WebElement submitSuccessAlert;
 
-    @FindBy(xpath = "//input[@name='emailOrUsername']")
+    @FindBy(xpath = "//input[@name='email']")
     public WebElement loginUserName;
 
-    @FindBy(xpath = "//input[@type='password']")
+    @FindBy(xpath = "//input[@name='password']")
     public WebElement loginPassword;
 
     @FindBy(xpath = "//button[@type='submit']")
@@ -56,31 +59,40 @@ public class RegisterPage {
     @FindBy(xpath = "//div[@class='modal-title h4']")
     public WebElement loginTitle;
 
+    @FindBy(xpath = "//h1[contains(text(),'Dashboard')]")
+    public WebElement loginDashboardHeader;
+
     @FindBy(xpath = "//button[@type='button']")
     public WebElement loginNextButton;
 
 
 
 
-    @FindBy(xpath = "//input[@placeholder='Enter Inhaber']")
+    @FindBy(xpath = "//input[@name='owner']")
     public WebElement enterInhaber;
     @FindBy(xpath = "//input[@name='firma']")
     public WebElement enterFrimenname;
-    @FindBy(xpath = "//input[@placeholder='Enter Strasse']")
+    @FindBy(xpath = "//input[@name='street']")
     public WebElement enterStrasse;
-    @FindBy(xpath = "//input[@placeholder='Enter Plz']")
+    @FindBy(xpath = "//input[@name='plz']")
     public WebElement enterPlz;
-    @FindBy(xpath = "//input[@placeholder='Enter Ort']")
+    @FindBy(xpath = "//input[@name='ort']")
     public WebElement enterOrt;
-    @FindBy(xpath = "//input[@placeholder='Enter Land']")
+    @FindBy(xpath = "//*[contains(text(),'Select...')]")
     public WebElement enterLand;
 
+    @FindBy(xpath = "//*[contains(text(),'Deutschland')]")
+    public WebElement enterLandDeutschland;
 
-    @FindBy(xpath = "  (//button[@type='button'])[2]")
+
+
+    @FindBy(xpath = "//button[@type='submit']")
     public WebElement saveButtonRegister;
 
-    @FindBy(xpath = "//*[text()='Logout']")
-    public WebElement loginLogout;
+    @FindBy(xpath = "(//div[@class='topbar-item'])[6]")
+    public WebElement loginLogoutIcon;
+    @FindBy(xpath = "//a[@type='button']")
+    public WebElement loginLogoutButton;
 
     @FindBy(xpath = "//button[@id='details-button']")
     public WebElement securityAdvancedButton;

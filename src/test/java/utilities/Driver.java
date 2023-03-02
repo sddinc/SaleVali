@@ -69,6 +69,16 @@ public abstract class Driver {
             }
         }
     }
+    public static void waitAndClear(WebElement element, int timeout) {
+        for (int i = 0; i < timeout; i++) {
+            try {
+                element.clear();
+                return;
+            } catch (WebDriverException e) {
+                wait(1);
+            }
+        }
+    }
     public static void waitAndClick(WebElement element) {
         for (int i = 0; i < timeout; i++) {
             try {
