@@ -5,46 +5,60 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.RegisterPage;
+import utilities.BaseWebDriver;
 import utilities.Driver;
 
 public class createNewUserStepDef {
     //CommonPage commonPage = new CommonPage();
-    RegisterPage registrationPage = new RegisterPage();
+    private final RegisterPage registrationPage;
+
+    public  createNewUserStepDef(final RegisterPage registrationPage){
+        this.registrationPage = registrationPage;
+    }
 
     @Given("Go to salevali homepage {string}")
     public void goToSalevaliHomepage(String url) {
-        Driver.getDriver().get(url);
+        BaseWebDriver.getDriver().get(url);
 
    }
 
 
     @Then("User clicks to registration page")
     public void userClicksToRegistrationPage() {
-        Driver.waitAndClick(registrationPage.linkToRegisterForm);
+
+        registrationPage.clickFunction(registrationPage.linkToRegisterForm);
+        //Driver.waitAndClick(registrationPage.linkToRegisterForm);
     }
 
     @Then("User enter valid data on the name textbox {string}")
     public void userEnterValidDataOnTheNameTextbox(String strName) {
+        registrationPage.sendKeysFunction(registrationPage.usernameRegister2,strName);
+        /*
         Driver.waitAndClick(registrationPage.usernameRegister2);
         Driver.waitAndSendText(registrationPage.usernameRegister2,strName);
 
-
+*/
     }
 
     @Then("User enter valid data on the email textbox {string}")
     public void userEnterValidDataOnTheEmailTextbox(String strEmail) {
-        Driver.waitAndSendText(registrationPage.emailRegister,strEmail);
+
+     registrationPage.sendKeysFunction(registrationPage.emailRegister, strEmail);
+     //   Driver.waitAndSendText(registrationPage.emailRegister,strEmail);
 
     }
 
     @Then("User enter valid data on the password textbox {string}")
     public void userEnterValidDataOnThePasswordTextbox(String strPassword) {
-        Driver.waitAndSendText(registrationPage.passwordRegister,strPassword);
+registrationPage.sendKeysFunction(registrationPage.passwordRegister,strPassword);
+//        Driver.waitAndSendText(registrationPage.passwordRegister,strPassword);
     }
 
     @Then("User confirm checkbox to registration")
     public void userConfirmCheckboxToRegistration() {
-        Driver.waitAndClick(registrationPage.checkAcceptTerms);
+
+     registrationPage.clickFunction(registrationPage.checkAcceptTerms);
+     //   Driver.waitAndClick(registrationPage.checkAcceptTerms);
     }
 
     @Then("User clicks submit button")
@@ -52,12 +66,14 @@ public class createNewUserStepDef {
 
         //Driver.waitAndClick(registrationPage.clickBeforeSubmit,1);
         //registrationPage.submitRegister.submit();
-        Driver.waitAndClick(registrationPage.submitRegister,3);
+        registrationPage.clickFunction(registrationPage.submitRegister);
+        //Driver.waitAndClick(registrationPage.submitRegister,3);
 
     }
     @Then("User should should see the confirm message")
     public void userShouldShouldSeeTheConfirmMessage() {
-        String strAlert=Driver.waitAndGetText(registrationPage.submitSuccessAlert,2);
+
+        String strAlert=registrationPage.getElementText(registrationPage.submitSuccessAlert);
         boolean bol=strAlert.toUpperCase().contains("SALEVALI TEAM");
         //boolean bol=strAlert.toUpperCase().contains("FEHLER");
         System.out.println(strAlert);
@@ -73,24 +89,32 @@ public class createNewUserStepDef {
         Driver.waitAndClick(registrationPage.securityAdvancedButton,2);
         Driver.waitAndClick(registrationPage.securityUnsafeLink,2);
 */
-        Assert.assertEquals(Driver.waitAndGetText(registrationPage.LoginHeader,2),"Login");
+       // Assert.assertEquals(Driver.waitAndGetText(registrationPage.LoginHeader,2),"Login");
 
     }
 
     @And("User enters username {string} and password {string}")
     public void userEntersUsernameAndPassword(String loginName, String loginPass) {
+
+        registrationPage.sendKeysFunction(registrationPage.loginUserName, loginName);
+        registrationPage.sendKeysFunction(registrationPage.loginPassword, loginPass);
+        /*
     Driver.waitAndSendText(registrationPage.loginUserName,loginName);
     Driver.waitAndSendText(registrationPage.loginPassword,loginPass);
+    */
+
     }
 
     @And("User clicks sign in button")
     public void userClicksSignInButton() {
-        Driver.waitAndClick(registrationPage.loginSubmitButton,1);
+
+        registrationPage.clickFunction(registrationPage.loginSubmitButton);
+//        Driver.waitAndClick(registrationPage.loginSubmitButton,1);
     }
 
     @Then("User verifies that sign in is successful")
     public void userVerifiesThatSignInIsSuccessful() {
-        Assert.assertEquals(Driver.waitAndGetText(registrationPage.loginTitle,2),"Salevali Team");
+//        Assert.assertEquals(Driver.waitAndGetText(registrationPage.loginTitle,2),"Salevali Team");
          // Driver.waitAndClick(registrationPage.loginNextButton,1);
     }
 

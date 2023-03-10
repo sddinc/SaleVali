@@ -14,9 +14,7 @@ import java.util.List;
 
 public class deleteCustomerStepDef {
 
-
-
-
+    private CustomerPage customerPage;
     CustomerPage kundenPage = new CustomerPage();
 
     @And("User clicks on delete icon")
@@ -34,6 +32,7 @@ public class deleteCustomerStepDef {
             Driver.waitAndClick(kundenPage.customerDeleteButton,2);
             nrDeleteIcons--;
         }
+
 
     }
 

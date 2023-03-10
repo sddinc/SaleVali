@@ -11,8 +11,11 @@ import utilities.Driver;
 public class createNewCustomerStepDef {
 
     public static WebDriver driver;
-    CustomerPage kundenPage = new CustomerPage();
+    private final CustomerPage kundenPage ;
 
+    public createNewCustomerStepDef(CustomerPage kundenPage){
+        this.kundenPage = kundenPage;
+    }
     @Then("User clicks on Kunden link")
     public void userClicksOnKundenLink() {
         Driver.waitAndClick(kundenPage.menuKunden,2);
@@ -100,14 +103,19 @@ public class createNewCustomerStepDef {
     }
     @And("User change language as a english")
     public void userChangeLanguageAsAEnglish() {
-        Driver.waitAndClick(kundenPage.headerLanguageIcon,2);
+        kundenPage.clickFunction(kundenPage.headerLanguageIcon);
+        //Driver.waitAndClick(kundenPage.headerLanguageIcon,2);
         // add here mouse hover over German after then click on English
 /*
         Actions actions = new Actions(driver);
 
         actions.moveToElement(kundenPage.languageOptGermany).perform();
   */
-        Driver.waitAndClick(kundenPage.headerLanguageEnglish,2);
+        kundenPage.moveToElement(kundenPage.search);
+        kundenPage.clickFunction(kundenPage.headerLanguageEnglish);
+
+        kundenPage.clickFunction(kundenPage.customerBtn);
+        //Driver.waitAndClick(kundenPage.headerLanguageEnglish,2);
         //
     }
 }

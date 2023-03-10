@@ -10,17 +10,23 @@ import utilities.Driver;
 
 public class updateCustomerStepDef {
 
-    CustomerPage kundenPage = new CustomerPage();
+    private final CustomerPage kundenPage;
 
+    public updateCustomerStepDef(final CustomerPage kundenPage){
+        this.kundenPage = kundenPage;
+    }
 
     @Given("User clicks on the edit icon on the actions")
     public void userClicksOnTheEditIconOnTheActions() {
-        Driver.waitAndClick(kundenPage.customerUpdateIcon,2);
+
+        kundenPage.clickFunction(kundenPage.customerUpdateIcon);
     }
 
     @Then("Verify that update customer is visible successfully")
     public void verifyThatUpdateCustomerIsVisibleSuccessfully() {
-        String updateCardTitle= Driver.waitAndGetText(kundenPage.customerUpdateCardTitle,2);
+
+
+        String updateCardTitle= kundenPage.getElementText(kundenPage.customerUpdateCardTitle);
         assert updateCardTitle != null;
         Assert.assertTrue(updateCardTitle.equalsIgnoreCase("Update Customer"));
     }
@@ -33,11 +39,14 @@ public class updateCustomerStepDef {
     @And("User update  {string} in the customer name input")
     public void userEnterInTheCutomerNameInput(String str) {
 
+        kundenPage.sendKeysFunction(kundenPage.customerName, str);
+        kundenPage.customerName.getAttribute("value");
+        /*
         Driver.waitAndClick(kundenPage.customerName,2);
         
         kundenPage.customerName.sendKeys(Keys.CONTROL + "a", Keys.BACK_SPACE);
         Driver.waitAndClear(kundenPage.customerName,3);
-
+*/
 
     }
 

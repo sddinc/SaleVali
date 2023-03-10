@@ -8,8 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="sale" />
         <module name="medunnastartup" />
-        <module name="cucumber-framework" />
         <module name="sali" />
+        <module name="cucumber-framework" />
       </profile>
     </annotationProcessing>
   </component>
