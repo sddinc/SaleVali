@@ -8,6 +8,7 @@ stepdefinitions/seleniumuisteps/deleteCustomerStepDef.class
 utilities/ReusableMethods.class
 runners/Runner.class
 runners/SmokeTestRunner.class
+stepdefinitions/seleniumuisteps/createProductStepDef.class
 utilities/ConfigReader.class
 pages/CustomerPage.class
 stepdefinitions/seleniumuisteps/updateCustomerStepDef.class
@@ -16,6 +17,7 @@ utilities/ReusableMethods$1.class
 utilities/Driver$1.class
 utilities/DBUtils.class
 utilities/Driver.class
+pages/ProductPage.class
 stepdefinitions/seleniumuisteps/createNewUserStepDef.class
 utilities/ReusableMethods$2.class
 utilities/ExcelUtil.class

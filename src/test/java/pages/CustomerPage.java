@@ -49,11 +49,13 @@ public class CustomerPage {
     @FindBy(xpath = "(//button[@type='button'])[4]")
     public WebElement customerAddNewAddress;
 
-    @FindBy(xpath = "(//div[@class='topbar-item'])[5]")
-    public WebElement headerLanguageIcon;
+    @FindBy(xpath = "(//div[@class='topbar-item'])[4]")
+   public WebElement headerLanguageIcon;
 
-    @FindBy(xpath = "//*[contains(text(),'English')]")
+    //@FindBy(xpath = "//*[contains(text(),'English')]")
+    @FindBy(xpath = "(//img[@alt='English'])[1]")
     public WebElement headerLanguageEnglish;
+
 
     @FindBy(xpath = "(//div[contains(text(),'Select...')])[1]")
     public WebElement customerAddressType;

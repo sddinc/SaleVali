@@ -1,5 +1,7 @@
 /Users/sdinc00/IdeaProjects/sale/src/test/java/utilities/Driver.java
+/Users/sdinc00/IdeaProjects/sale/src/test/java/pages/ProductPage.java
 /Users/sdinc00/IdeaProjects/sale/src/test/java/stepdefinitions/database_step_defs/Read_Step_Definitions.java
+/Users/sdinc00/IdeaProjects/sale/src/test/java/stepdefinitions/seleniumuisteps/createProductStepDef.java
 /Users/sdinc00/IdeaProjects/sale/src/test/java/runners/SmokeTestRunner.java
 /Users/sdinc00/IdeaProjects/sale/src/test/java/utilities/ExcelUtil.java
 /Users/sdinc00/IdeaProjects/sale/src/test/java/stepdefinitions/seleniumuisteps/createNewCustomerStepDef.java

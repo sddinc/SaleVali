@@ -32,25 +32,21 @@ public class updateCustomerStepDef {
     }
     @And("User update  {string} in the customer name input")
     public void userEnterInTheCutomerNameInput(String str) {
+        Driver.waitAndClear(kundenPage.customerName,2);
 
-        Driver.waitAndClick(kundenPage.customerName,2);
-        
-        kundenPage.customerName.sendKeys(Keys.CONTROL + "a", Keys.BACK_SPACE);
-        Driver.waitAndClear(kundenPage.customerName,3);
-
-
+        kundenPage.customerName.sendKeys(str);
     }
 
     @And("User update  {string} in the email input")
     public void userEnterInTheEmailInput(String str) {
         Driver.waitAndClick(kundenPage.customerEmail,2);
-        kundenPage.customerEmail.sendKeys(Keys.CONTROL + "a", Keys.BACK_SPACE);
 
-        Driver.waitAndClear(kundenPage.customerEmail,3);
     }
 
     @And("User update  {string} in the company name input")
     public void userEnterInTheCompanyNameInput(String str) {
+
+
         Driver.waitAndClear(kundenPage.customerFirma,3);
        // Driver.waitAndSendText(kundenPage.customerFirma,str);
     }

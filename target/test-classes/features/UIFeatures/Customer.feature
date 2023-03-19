@@ -50,7 +50,7 @@ Feature: Create new customer
 
   Examples:
     |CustomerType|customerName|eMail           |company|mobilePhone  |handly |fax             |taxNumber   |vatId|
-    |Privatkunde  |Update C|xyztxyzt0110@gmail.com |Apple |001100000000|88889999888       |888889999   |88888      |9999 |
+    |Privatkunde  |Update C|xyztxyzt0110@gmail.com |Apple |1|1       |1   |1      |1 |
 
   Scenario: Delete customer
     Given User clicks on Kunden link

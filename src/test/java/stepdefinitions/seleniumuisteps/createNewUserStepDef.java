@@ -148,4 +148,5 @@ public class createNewUserStepDef {
         System.out.println(Driver.getDriver().getCurrentUrl());
 
     }
+
 }
