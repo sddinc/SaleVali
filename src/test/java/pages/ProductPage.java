@@ -49,6 +49,13 @@ public class ProductPage {
     @FindBy(xpath = "(//button[contains(text(),'Save')])[1]")
     public WebElement productSave;
 
+    @FindBy(xpath = "(//input[@type='checkbox'])[2]")
+    public WebElement productCheckBoxAllList;
+    @FindBy(xpath = "(//input[@type='checkbox'])[4]")
+    public WebElement productCheckBoxFirstsProduct;
+    @FindBy(xpath = "(//button[contains(text(),'Delete')])[1]")
+    public WebElement productDeleteButton;
+
 
 
 

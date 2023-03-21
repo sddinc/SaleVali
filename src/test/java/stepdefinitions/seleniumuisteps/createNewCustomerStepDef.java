@@ -4,15 +4,20 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
 import pages.CustomerPage;
 import utilities.Driver;
+import pages.Parent;
 
 public class createNewCustomerStepDef {
 
-    public static WebDriver driver;
     CustomerPage kundenPage = new CustomerPage();
+    /*
+    private final CustomerPage customerPage;
 
+    public createNewCustomerStepDef(final CustomerPage customerPage) {
+        this.customerPage = customerPage;
+    }
+*/
     @Then("User clicks on Kunden link")
     public void userClicksOnKundenLink() {
         Driver.waitAndClick(kundenPage.menuKunden,2);
@@ -93,21 +98,18 @@ public class createNewCustomerStepDef {
         Driver.waitAndSendText(kundenPage.customerContactAddressLine2,"Adress line 2 ");
         Driver.waitAndSendText(kundenPage.customerContactPlzPostCode,"4565");
         Driver.waitAndSendText(kundenPage.customerContactOrtCity,"Dortmund");
-        //Driver.waitAndClick(kundenPage.customerLand,2);
-        // Driver.waitAndClick(kundenPage.customerLandOptionDeutschland,2);
-        // default selected as a Deutschland
+
 
     }
     @And("User change language as a english")
     public void userChangeLanguageAsAEnglish() {
-        Driver.waitAndClick(kundenPage.headerLanguageIcon,2);
-        // add here mouse hover over German after then click on English
-/*
-        Actions actions = new Actions(driver);
 
-        actions.moveToElement(kundenPage.languageOptGermany).perform();
-  */
-        Driver.waitAndClick(kundenPage.headerLanguageEnglish,2);
-        //
+       Driver.waitAndClick(kundenPage.headerLanguageIcon,2);
+       Driver.waitAndClick(kundenPage.headerLanguageEnglish,2);
+        /*
+        customerPage.clickFunction(customerPage.headerLanguageIcon);
+        customerPage.clickFunction(customerPage.headerLanguageEnglish);
+        */
+
     }
 }

@@ -15,7 +15,7 @@ import utilities.Driver;
 
 public class createProductStepDef {
 
-    public static WebDriver driver;
+
     ProductPage productPage = new ProductPage();
 
 

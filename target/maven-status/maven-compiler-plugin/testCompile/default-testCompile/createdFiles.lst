@@ -1,5 +1,7 @@
 stepdefinitions/seleniumuisteps/createNewCustomerStepDef.class
+utilities/BaseWebDriver.class
 runners/RegressionTestRunner.class
+pages/Parent.class
 stepdefinitions/database_step_defs/Create_Step_Definitions.class
 runners/TestRunner.class
 stepdefinitions/database_step_defs/Read_Step_Definitions.class
@@ -21,3 +23,4 @@ pages/ProductPage.class
 stepdefinitions/seleniumuisteps/createNewUserStepDef.class
 utilities/ReusableMethods$2.class
 utilities/ExcelUtil.class
+stepdefinitions/seleniumuisteps/deleteProductStepDef.class

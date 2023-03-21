@@ -5,10 +5,13 @@
 /Users/sdinc00/IdeaProjects/sale/src/test/java/runners/SmokeTestRunner.java
 /Users/sdinc00/IdeaProjects/sale/src/test/java/utilities/ExcelUtil.java
 /Users/sdinc00/IdeaProjects/sale/src/test/java/stepdefinitions/seleniumuisteps/createNewCustomerStepDef.java
+/Users/sdinc00/IdeaProjects/sale/src/test/java/utilities/BaseWebDriver.java
 /Users/sdinc00/IdeaProjects/sale/src/test/java/runners/TestRunner.java
 /Users/sdinc00/IdeaProjects/sale/src/test/java/stepdefinitions/seleniumuisteps/deleteCustomerStepDef.java
 /Users/sdinc00/IdeaProjects/sale/src/test/java/stepdefinitions/seleniumuisteps/createNewUserStepDef.java
 /Users/sdinc00/IdeaProjects/sale/src/test/java/runners/Runner.java
+/Users/sdinc00/IdeaProjects/sale/src/test/java/pages/Parent.java
+/Users/sdinc00/IdeaProjects/sale/src/test/java/stepdefinitions/seleniumuisteps/deleteProductStepDef.java
 /Users/sdinc00/IdeaProjects/sale/src/test/java/utilities/DBUtils.java
 /Users/sdinc00/IdeaProjects/sale/src/test/java/utilities/ReusableMethods.java
 /Users/sdinc00/IdeaProjects/sale/src/test/java/pages/CustomerPage.java
